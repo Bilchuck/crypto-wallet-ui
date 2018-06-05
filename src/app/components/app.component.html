@@ -1,0 +1,9 @@
+<header>
+  <span>
+    User id: {{userName}}
+  </span>
+  <button (click)="signOut()" [hidden]="logginPage" style="float: right">
+    Sign out
+  </button>
+</header>
+<router-outlet></router-outlet>
