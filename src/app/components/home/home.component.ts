@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     this.userId = localStorage.getItem('login')
     this.transactions = await this.blockchain.getTransactions(this.userId)
     this.amount = await this.blockchain.amount(this.userId)
-    console.log(1)
   }
 
  async sendTransaction(to, amount) {

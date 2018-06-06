@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AccountComponent implements OnInit {
   accountId: string;
   transactions: any[];
+  amount: number;
 
   constructor(
     private router: ActivatedRoute,
@@ -17,10 +18,11 @@ export class AccountComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.router.params.subscribe(params => {
+    this.router.params.subscribe(async params => {
       this.accountId = params.id
+      this.amount = await this.blockchain.amount(this.accountId)
+      this.transactions = await this.blockchain.getTransactions(this.accountId)
     })
-    this.transactions = await this.blockchain.getTransactions(this.accountId)
   }
 
 }
