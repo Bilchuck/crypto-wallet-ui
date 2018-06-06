@@ -1,3 +1,4 @@
+import { AccountComponent } from './../components/account/account.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthGuardService } from '../services/auth.guard';
 import { HomeComponent } from '../components/home/home.component';
@@ -7,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'account/:id', component: AccountComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' },
 ]

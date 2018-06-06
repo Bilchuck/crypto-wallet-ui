@@ -11,4 +11,13 @@ export class BlockchainService {
   getTransactions(user): Promise<Array<any>> {
     return this.blockchainHttp.getTransactions(user)
   }
+
+  sendTransaction(from, to, amount): Promise<void> {
+    return this.blockchainHttp.sendTransaction(from, to, amount)
+  }
+
+  amount(id): Promise<number> {
+    return this.blockchainHttp.amount(id)
+      .then(res => res.amount)
+  }
 }

@@ -1,11 +1,25 @@
-<div *ngFor="let transaction of transactions">
-  <div>
-    {{transaction.from}}
-  </div>
-  <div>
-    {{transaction.to}}
-  </div>
-  <div>
-    {{transaction.amount}}
-  </div>
+<div>
+  <h1>
+    Welcome to home page!
+  </h1>
+  <hr>
+  <h2>
+    Your amount: {{amount}}
+  </h2>
+  <hr>
+  <h2>
+    Transactions
+  </h2>
+  <app-transaction-table
+    [transactions]="transactions"
+    [accountId]="userId"
+  >
+  </app-transaction-table>
+  <hr>
+  <h2>
+    Make transactions
+  </h2>
+  <input type="text" placeholder="userId" #userIdInput>
+  <input type="text" placeholder="amount" #amountInput>
+  <button (click)="sendTransaction(userIdInput.value, amountInput.value)">Send transaction!</button>
 </div>

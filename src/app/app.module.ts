@@ -11,12 +11,16 @@ import { AuthService } from './services/auth.service';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { AccountComponent } from './components/account/account.component';
+import { TransactionTableComponent } from './components/transaction-table/transaction-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AccountComponent,
+    TransactionTableComponent
   ],
   imports: [
     BrowserModule,

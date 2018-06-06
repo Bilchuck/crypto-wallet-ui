@@ -8,14 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   transactions: any[];
+  userId: string
+  amount: number
 
   constructor(private blockchain: BlockchainService) {
   }
 
   async ngOnInit () {
-    const userName = localStorage.getItem('login')
-    this.transactions = await this.blockchain.getTransactions(userName)
+    this.userId = localStorage.getItem('login')
+    this.transactions = await this.blockchain.getTransactions(this.userId)
+    this.amount = await this.blockchain.amount(this.userId)
     console.log(1)
   }
 
+ async sendTransaction(to, amount) {
+    await this.blockchain.sendTransaction(this.userId, to, amount)
+    window.location.reload();
+  }
 }

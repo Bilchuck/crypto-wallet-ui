@@ -1,0 +1,22 @@
+<table class="transactions">
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Amount</th>
+  </tr>
+  <tr *ngFor="let transaction of transactions" [ngClass]="{'green': transaction.to === accountId}">
+    <td>
+      <a [routerLink]="['/account', transaction.from]">
+        {{transaction.from}}
+      </a>
+    </td>
+    <td>
+      <a [routerLink]="['/account', transaction.to]">
+        {{transaction.to}}
+      </a>
+    </td>
+    <td>
+      {{transaction.amount}}
+    </td>
+  </tr>
+</table>
